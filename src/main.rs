@@ -38,10 +38,10 @@ fn main() {
     // println!("remaning bytes = {}", remain);
 
     for i in 0..chunk_num {
-        let start = chunk_size * i;
-        input_file
-            .seek(SeekFrom::Start(start.try_into().unwrap()))
-            .unwrap();
+        // let start = chunk_size * i;
+        // input_file
+        //     .seek(SeekFrom::Start(start.try_into().unwrap()))
+        //     .unwrap();
         let mut buf = vec![0; chunk_size];
         let _ = input_file.read_exact(&mut buf);
 
@@ -51,10 +51,10 @@ fn main() {
     }
 
     if remain > 0 {
-        let start = chunk_num * chunk_size;
-        input_file
-            .seek(SeekFrom::Start(start.try_into().unwrap()))
-            .unwrap();
+        // let start = chunk_num * chunk_size;
+        // input_file
+        //     .seek(SeekFrom::Start(start.try_into().unwrap()))
+        //     .unwrap();
         let mut buf = vec![0; remain];
         let _ = input_file.read_exact(&mut buf);
 

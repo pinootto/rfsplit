@@ -29,10 +29,9 @@ fn main() -> Result<(), std::io::Error> {
 
     for i in 0..args.num_of_files {
         let mut input_file = File::open(format!("{}-{}", args.input_file.as_str(), i))?;
-        println!("input_file = {}", args.input_file);
         let mut buf = Vec::new();
         let file_size = input_file.read_to_end(&mut buf)?;
-        println!("file_size = {}", file_size);
+        println!("file_size {} = {}", i, file_size);
         output_file.write_all(buf.as_slice())?;
     }
     Ok(())

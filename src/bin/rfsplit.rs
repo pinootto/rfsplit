@@ -39,7 +39,6 @@ fn main() -> Result<(), std::io::Error> {
     for i in 0..chunk_num {
         let _ = input_file.read_exact(&mut buf)?;
 
-        // let output_filename = String::from(args.output_file.as_str()) + &i.to_string();
         let output_filename = format!("{}-{}", args.output_file.as_str(), i);
         let mut output_file = File::create(output_filename)?;
         output_file.write_all(buf.as_slice())?;
@@ -49,7 +48,6 @@ fn main() -> Result<(), std::io::Error> {
         buf.truncate(remain);
         let _ = input_file.read_exact(&mut buf)?;
 
-        // let output_filename = String::from(args.output_file.as_str()) + &chunk_num.to_string();
         let output_filename = format!("{}-{}", args.output_file.as_str(), chunk_num);
         let mut output_file = File::create(output_filename)?;
         output_file.write_all(buf.as_slice())?;
